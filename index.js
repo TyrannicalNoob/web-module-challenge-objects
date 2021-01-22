@@ -15,9 +15,9 @@ The function should:
   Example createMenuItem('tacos', 8, 'Lunch') should return {name: 'tacos', price: 8, category: 'Lunch'}
 */
 
-function createMenuItem('french toast', 10, 'Breakfast'){
-    /*Your code here*/
-}
+function createMenuItem(name, price, category){
+   return {name, price, category};
+} 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Invoke your function!
@@ -29,6 +29,7 @@ Test your createMenuItems function by doing the following:
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
 
+createMenuItem('french toast', 10, 'Breakfast');
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -49,6 +50,13 @@ export const burger = {
   price: 18, 
   category: "Lunch", 
   /*Your code here*/
+  discount: function(string){
+    if (string==='teacher' || string === 'student'){
+      return this.price * .75;
+    }else if(string){
+      return this.price * .9;
+    }
+  }
 }
 
 
@@ -69,7 +77,7 @@ const reviews = [
 Using the reviews array above:
   1. log only Julius' feedback to the console - no function needed 
 */
-
+console.log(reviews[5].feedback); //tested in codepen and got the right answer
 
 
 
@@ -101,9 +109,9 @@ Use the getReviewByIndex function below to do the following:
   For example: getReviewByIndex(reviews,0) would return: "Daniela gave the restaurant a 5 star review, and their feedback was: Beautiful atmosphere and wonderful vegan options!"
 */
 
-
-function getReviewByIndex(/*Your code here*/) {
+function getReviewByIndex(array, indexnum) {
   /*Your code here*/
+  return `${array[indexnum].name} gave the restaurant a ${array[indexnum].rating} star review, and their feedback was: ${array[indexnum].feedback}`;
 }
 
 
@@ -121,10 +129,12 @@ Use the getLastReview function below to do the following:
 */
 
 
-function getLastReview(/*Your code here*/) {
-  /*Your code here*/
+function getLastReview(array) {
+  const lastindex = array.length -1;
+  return `${array[lastindex].name} gave the restaurant a ${array[lastindex].rating} star review, and their feedback was: ${array[lastindex].feedback}`;
 } 
 
+getLastReview(reviews);
 
 
 ///////////////🍔☕️🍽 STRETCH🍔☕️🍽////////////////////
